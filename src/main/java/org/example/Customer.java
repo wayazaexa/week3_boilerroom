@@ -65,8 +65,8 @@ public class Customer {
         return "Kund id='" + id + '\'' +
                 ", namn='" + name + '\'' +
                 ", mejl=" + emails +
-                ", antal taggar=" + tags.size() +
-                ", antal anteckningar=" + notes.size();
+                ", taggar=" + tags +
+                ", anteckningar=" + notes;
     }
     public boolean removeEmail(String email){
         return emails.remove(email);
@@ -78,4 +78,12 @@ public class Customer {
     public boolean addNote(String note){
         return notes.add(note);
     }
+    public String condensedInfo() {
+        return "Kund id='" + id + '\'' +
+                ", namn='" + name + '\'' +
+                ", mejl=" + emails +
+                ", antal taggar=" + tags.size() +
+                ", antal anteckningar=" + notes.size();
+    }
+
 }
