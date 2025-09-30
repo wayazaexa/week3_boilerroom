@@ -32,8 +32,8 @@ public class Customer {
     public Set<String> getEmails() {
         return emails;
     }
-    public void addEmail(String email){
-        emails.add(email);
+    public boolean addEmail(String email){
+        return emails.add(email);
     }
     public void setEmails(Set<String> emails) {
         this.emails = emails;
@@ -58,9 +58,6 @@ public class Customer {
     public Customer(String id, String name) {
         this.id = id;
         this.name = name;
-
-
-
     }
 
     @Override
@@ -70,5 +67,9 @@ public class Customer {
                 ", mejl=" + emails +
                 ", antal taggar=" + tags.size() +
                 ", antal anteckningar=" + notes.size();
+    }
+    public boolean removeEmail(String email){
+        return emails.remove(email);
+
     }
 }
