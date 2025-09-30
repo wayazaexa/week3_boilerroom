@@ -24,7 +24,10 @@ public class Main {
             System.out.println("7. Lista all kunder");
             System.out.println("8. Avsluta");
             System.out.print("Val: ");
-            int userChoice = Integer.parseInt(scanner.nextLine()); // Assumes "nice" input, should be try/catch
+            int userChoice = -1;
+            try {
+                userChoice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {}
             switch (userChoice) {
                 case 1 -> addCustomer();
                 case 2 -> addEmail();
@@ -133,7 +136,7 @@ public class Main {
         String id = scanner.nextLine();
         if (database.containsKey(id)) {
             Customer customer = database.get(id);
-            System.out.println(customer);
+            System.out.println(customer + "\n");
         }
         else {
             System.out.println("Detta kund-ID finns inte i databasen.\n");
@@ -145,5 +148,6 @@ public class Main {
         for (Customer customer : database.values()) {
             System.out.println(customer.condensedInfo());
         }
+        System.out.println();
     }
 }
