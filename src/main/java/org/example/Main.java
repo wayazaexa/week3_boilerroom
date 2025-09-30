@@ -48,7 +48,20 @@ public class Main {
         System.out.println("Kunden har lagts till.\n");
     }
 
-    private void addEmail() {}
+    private void addEmail() {
+        System.out.print("Mata in kund-ID för den kund du vill lägga till e-post för: ");
+        String id = scanner.nextLine();
+        if (database.containsKey(id)) {
+            Customer customer = database.get(id);
+            System.out.print("Mata in kundens e-postadress: ");
+            String email = scanner.nextLine();
+            customer.addEmail(email);
+            database.replace(id, customer);
+        }
+        else {
+            System.out.println("Detta kund-ID finns inte i databasen.\n");
+        }
+    }
 
     private void removeEmail() {}
 
