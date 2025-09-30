@@ -61,5 +61,12 @@ public class Customer {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Kund id='" + id + '\'' +
+                ", namn='" + name + '\'' +
+                ", mejl=" + emails +
+                ", antal taggar=" + tags.size() +
+                ", antal anteckningar=" + notes.size();
+    }
 }
