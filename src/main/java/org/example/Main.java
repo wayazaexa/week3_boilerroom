@@ -88,16 +88,62 @@ public class Main {
         }
     }
 
-    private void addTag() {}
+    private void addTag() {
+        System.out.print("Mata in kund-ID för den kund du vill lägga till tag för: ");
+        String id = scanner.nextLine();
+        if (database.containsKey(id)) {
+            Customer customer = database.get(id);
+            System.out.print("Mata in den nya taggen: ");
+            String tag = scanner.nextLine();
+            if (customer.addTag(tag)) {
+                database.replace(id, customer);
+                System.out.println("Taggen har lagts till.\n");
+            }
+            else {
+                System.out.println("Taggen fanns redan registrerad för kunden.\n");
+            }
+        }
+        else {
+            System.out.println("Detta kund-ID finns inte i databasen.\n");
+        }
+    }
 
-    private void addNote() {}
+    private void addNote() {
+        System.out.print("Mata in kund-ID för den kund du vill lägga till anteckning för: ");
+        String id = scanner.nextLine();
+        if (database.containsKey(id)) {
+            Customer customer = database.get(id);
+            System.out.print("Mata in den nya anteckningen: ");
+            String note = scanner.nextLine();
+            if (customer.addNote(note)) {
+                database.replace(id, customer);
+                System.out.println("Anteckningen har lagts till.\n");
+            }
+            else {
+                System.out.println("Anteckningen fanns redan registrerad för kunden.\n");
+            }
+        }
+        else {
+            System.out.println("Detta kund-ID finns inte i databasen.\n");
+        }
+    }
 
-    private void searchCustomer() {}
+    private void searchCustomer() {
+        System.out.print("Mata in kund-ID för den kund du vill se information för: ");
+        String id = scanner.nextLine();
+        if (database.containsKey(id)) {
+            Customer customer = database.get(id);
+            System.out.println(customer);
+        }
+        else {
+            System.out.println("Detta kund-ID finns inte i databasen.\n");
+        }
+    }
 
     private void listCustomers() {
         System.out.println("Samtliga kunder: ");
         for (Customer customer : database.values()) {
-            System.out.println(customer);
+            System.out.println(customer.condensedInfo());
         }
     }
 }
