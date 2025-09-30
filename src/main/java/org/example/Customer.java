@@ -32,7 +32,9 @@ public class Customer {
     public Set<String> getEmails() {
         return emails;
     }
-
+    public void addEmail(String email){
+        emails.add(email);
+    }
     public void setEmails(Set<String> emails) {
         this.emails = emails;
     }
