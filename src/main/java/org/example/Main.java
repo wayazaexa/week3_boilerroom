@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     private final Map<String, Customer> database = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         new Main().run();
@@ -135,8 +135,7 @@ public class Main {
         System.out.print("Mata in kund-ID för den kund du vill se information för: ");
         String id = scanner.nextLine();
         if (database.containsKey(id)) {
-            Customer customer = database.get(id);
-            System.out.println(customer + "\n");
+            System.out.println(database.get(id) + "\n");
         }
         else {
             System.out.println("Detta kund-ID finns inte i databasen.\n");
