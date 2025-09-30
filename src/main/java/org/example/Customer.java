@@ -72,4 +72,10 @@ public class Customer {
         return emails.remove(email);
 
     }
+    public boolean addTag(String tag){
+        return tags.add(tag);
+    }
+    public boolean addNote(String note){
+        return notes.add(note);
+    }
 }
