@@ -1,16 +1,18 @@
 package org.example;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
+    private final Map<String, Customer> database = new HashMap<>();
+    Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Map<String, Customer> database;
         new Main().run();
     }
 
     private void run() {
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Välkommen till vårat CRM-system");
             System.out.println("1. Lägg till ny kund");
@@ -37,7 +39,14 @@ public class Main {
         }
     }
 
-    private void addCustomer() {}
+    private void addCustomer() {
+        System.out.print("Mata in kund-ID: ");
+        String id = scanner.nextLine();
+        System.out.print("Mata in kundens namn: ");
+        String name = scanner.nextLine();
+        database.put(id, new Customer(id, name));
+        System.out.println("Kunden har lagts till.\n");
+    }
 
     private void addEmail() {}
 
@@ -49,5 +58,10 @@ public class Main {
 
     private void searchCustomer() {}
 
-    private void listCustomers() {}
+    private void listCustomers() {
+        System.out.println("Samtliga kunder: ");
+        for (Customer customer : database.values()) {
+            System.out.println(customer);
+        }
+    }
 }
