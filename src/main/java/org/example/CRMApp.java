@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class CRMApp {
     private final Map<String, Customer> database = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        new Main().run();
+        new CRMApp().run();
     }
 
     private void run() {
