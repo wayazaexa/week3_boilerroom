@@ -55,15 +55,38 @@ public class Main {
             Customer customer = database.get(id);
             System.out.print("Mata in kundens e-postadress: ");
             String email = scanner.nextLine();
-            customer.addEmail(email);
-            database.replace(id, customer);
+            if (customer.addEmail(email)) {
+                database.replace(id, customer);
+                System.out.println("E-postadressen har lagts till.\n");
+            }
+            else {
+                System.out.println("E-postadressen fanns redan registrerad för kunden.\n");
+            }
         }
         else {
             System.out.println("Detta kund-ID finns inte i databasen.\n");
         }
     }
 
-    private void removeEmail() {}
+    private void removeEmail() {
+        System.out.print("Mata in kund-ID för den kund du vill ta bort e-post för: ");
+        String id = scanner.nextLine();
+        if (database.containsKey(id)) {
+            Customer customer = database.get(id);
+            System.out.print("Mata in den e-postadress: ");
+            String email = scanner.nextLine();
+            if (customer.removeEmail(email)) {
+                database.replace(id, customer);
+                System.out.println("E-postadressen har tagits bort.\n");
+            }
+            else {
+                System.out.println("Kunden har inte denna e-postadress registrerad.\n");
+            }
+        }
+        else {
+            System.out.println("Detta kund-ID finns inte i databasen.\n");
+        }
+    }
 
     private void addTag() {}
 
