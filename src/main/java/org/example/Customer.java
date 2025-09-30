@@ -2,57 +2,18 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Customer {
 
     private String id;
     private String name;
-    private Set<String> emails = new LinkedHashSet<>();
+    private Set<String> emails = new HashSet<>();
     private Set<String> tags = new HashSet<>();
     private ArrayList<String> notes = new ArrayList<>();
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<String> getEmails() {
-        return emails;
-    }
     public boolean addEmail(String email){
         return emails.add(email);
-    }
-    public void setEmails(Set<String> emails) {
-        this.emails = emails;
-    }
-
-    public Set<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(Set<String> tags) {
-        this.tags = tags;
-    }
-
-    public ArrayList<String> getNotes() {
-        return notes;
-    }
-
-    public void setNotes(ArrayList<String> notes) {
-        this.notes = notes;
     }
 
     public Customer(String id, String name) {
@@ -68,16 +29,20 @@ public class Customer {
                 ", taggar=" + tags +
                 ", anteckningar=" + notes;
     }
+
     public boolean removeEmail(String email){
         return emails.remove(email);
 
     }
+
     public boolean addTag(String tag){
         return tags.add(tag);
     }
+
     public boolean addNote(String note){
         return notes.add(note);
     }
+
     public String condensedInfo() {
         return "Kund id='" + id + '\'' +
                 ", namn='" + name + '\'' +
